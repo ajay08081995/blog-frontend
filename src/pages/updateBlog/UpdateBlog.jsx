@@ -26,15 +26,13 @@ const UpdateBlog = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+
   const categories = [
-    'nature',
-    'music',
-    'travel',
-    'design',
-    'programming',
-    'fun',
-    'fashion'
-  ];
+    'Food',
+    'Education',
+    'Businessmen',
+    'Positions',
+  ]
 
   useEffect(() => {
     const fetchBlogDetails = async () => {
@@ -66,7 +64,7 @@ const UpdateBlog = () => {
       <Navbar />
       <Box className={classes.container}>
         <Paper elevation={3} className={classes.wrapper}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" sx={{ mb: 2 }}>
             Update Blog
           </Typography>
           <form onSubmit={handleUpdateBlog}>
@@ -88,7 +86,7 @@ const UpdateBlog = () => {
                 onChange={(e) => setDesc(e.target.value)}
               />
             </Box>
-            <Box mb={2}>
+            <Box mb={2} width={'100%'}>
               <Select
                 fullWidth
                 value={category}
@@ -102,7 +100,12 @@ const UpdateBlog = () => {
                 ))}
               </Select>
             </Box>
-            <Button variant="contained" color="primary" type="submit">
+            <Button variant="contained" color="primary" type="submit" sx={
+              {
+                mt: 2,
+                mb: 2,
+              }
+            }>
               Update
             </Button>
           </form>
