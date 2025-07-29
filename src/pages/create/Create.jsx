@@ -30,26 +30,14 @@ const Create = () => {
   const navigate = useNavigate()
   const { token } = useSelector((state) => state.auth)
 
-  // const categories = [
-  //   'nature',
-  //   'music',
-  //   'travel',
-  //   'design',
-  //   'programming',
-  //   'fun',
-  //   'fashion'
-  // ]
+ 
 
   const categories = [
-    'nature',
-    'music',
-    'travel',
-    'design',
-    'programming',
-    'fun',
-    'fashion'
+    'Food',
+    'Education',
+    'Businessmen',
+    'Positions',
   ]
-
 
   const onChangeFile = (e) => {
     setImg(e.target.files[0])
