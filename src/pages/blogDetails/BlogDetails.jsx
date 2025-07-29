@@ -1,3 +1,4 @@
+// src/pages/BlogDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -18,10 +19,11 @@ import {
   AiFillLike,
   AiFillDelete,
   AiOutlineArrowRight,
-  AiOutlineLike
+  AiOutlineLike,
+  AiOutlineArrowLeft
 } from 'react-icons/ai';
 
-import { request } from '../../utils/fetchApi';
+import { getBlogById, likeBlog, deleteBlog } from '../../services/blogService';
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navbar/Navbar';
 
@@ -35,8 +37,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchBlogDetails = async () => {
       try {
-        const options = { Authorization: `Bearer ${token}` };
-        const data = await request(`/blog/find/${id}`, 'GET', options);
+        const data = await getBlogById(id, token);
         setBlogDetails(data);
         setIsLiked(data.likes.includes(user._id));
       } catch (error) {
@@ -48,8 +49,7 @@ const BlogDetails = () => {
 
   const handleLikePost = async () => {
     try {
-      const options = { Authorization: `Bearer ${token}` };
-      await request(`/blog/likeBlog/${id}`, 'PUT', options);
+      await likeBlog(id, token);
       setIsLiked((prev) => !prev);
     } catch (error) {
       console.error(error);
@@ -58,8 +58,7 @@ const BlogDetails = () => {
 
   const handleDeleteBlog = async () => {
     try {
-      const options = { Authorization: `Bearer ${token}` };
-      await request(`/blog/deleteBlog/${id}`, 'DELETE', options);
+      await deleteBlog(id, token);
       navigate('/');
     } catch (error) {
       console.error(error);
@@ -75,7 +74,7 @@ const BlogDetails = () => {
         <Button
           component={RouterLink}
           to="/"
-          startIcon={<AiOutlineArrowRight />}
+          startIcon={<AiOutlineArrowLeft />}
           sx={{ mb: 2 }}
         >
           Go Back

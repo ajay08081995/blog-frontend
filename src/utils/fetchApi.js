@@ -1,4 +1,5 @@
 const BASE_URL = "http://localhost:5000"
+// const BASE_URL = "https://blog-backend-etwz.onrender.com/"
 
 export const request = async (url, method, headers = {}, body = {}, isNotStringified = false) => {
     let res

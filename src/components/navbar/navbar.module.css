@@ -1,4 +1,5 @@
-.container{
+/* Original CSS */
+.container {
     height: 60px;
     width: 100%;
     position: sticky;
@@ -9,56 +10,33 @@
     z-index: 999;
 }
 
-.wrapper{
+.wrapper {
     height: 100%;
     width: 1180px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* left */
-.left{
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.left > a{
-    text-decoration: none;
-    color: #fff;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 /* center */
-
-.center{
+.center {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 1.5rem;
 }
 
-.listItem{
-    color: #fff;
-    cursor: pointer;
-    transition: 150ms all;
-}
-
-.listItem:hover{
-    color: #dedbdb;
-}
-
-
 /* right */
-.right{
+.right {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    color: #fff;
+    gap: 1.5rem;
 }
 
-
-.img{
+.img {
     width: 40px;
     height: 40px;
     object-fit: cover;
@@ -66,25 +44,82 @@
     cursor: pointer;
 }
 
-.modal{
-    height: 75px;
-    width: 75px;
-    background-color: #666;
-    position: absolute;
-    top: 2.5rem;
-    right: 9.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.right > .modal > span{
+.listItem {
+    transition: 150ms all;
     cursor: pointer;
 }
 
-.right > .modal > a{
-    text-decoration: none;
-    color: #fff;
+/* New Creative Button Styles */
+.creativeButton {
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    border: 0 !important;
+    border-radius: 25px !important;
+    box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3) !important;
+    color: white !important;
+    height: 40px;
+    padding: 0 30px !important;
+    text-transform: none !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+}
+
+.creativeButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 7px 3px rgba(255, 105, 135, .3) !important;
+    background: linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .wrapper {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .center {
+        gap: 1rem;
+    }
+    
+    .right {
+        gap: 1rem;
+    }
+    
+    .creativeButton {
+        min-width: 140px;
+        padding: 0 20px !important;
+        font-size: 0.9rem !important;
+    }
+}
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* If you don't already have these, add them to maintain layout */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
 }
